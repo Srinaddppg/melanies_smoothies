@@ -33,9 +33,9 @@ ingredient_list = st.multiselect('Choose up the ingredients',
 if ingredient_list:
     ingredients_string = ''
     for fruits_choosen in ingredient_list:
-      ingredients_string += fruits_choosen +' '
-      search_on=pd_df.loc[pd_df['FRUIT_NAME'] == fruits_choosen, 'SEARCH_ON'].iloc[0]
-      ;
+      ingredients_string += fruits_choosen +' ';
+      #search_on=pd_df.loc[pd_df['FRUIT_NAME'] == fruits_choosen, 'SEARCH_ON'].iloc[0]
+#      ;
     st.write(ingredients_string)
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_on_order)
                     values ('""" + ingredients_string + "" "', '""" + name_on_order + "" "')"""
