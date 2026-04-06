@@ -51,7 +51,7 @@ try:
   st.text(smoothiefroot_response.status_code)
   st.text(smoothiefroot_response.json())
   sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
-  st.text(sf_df)
+  st.write(sf_df)
 except Exception as e:
   st.write('error is : ', {e})
     
