@@ -47,10 +47,13 @@ if ingredient_list:
 import requests  
 #smoothiefroot_response = requests.get("[https://my.smoothiefroot.com/api/fruit/watermelon](https://my.smoothiefroot.com/api/fruit/watermelon)")  
 try:
-  smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-  #st.text(smoothiefroot_response.status_code)
-  #st.text(smoothiefroot_response.json())
-  sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+  if ingredient_list:
+    ingredients_string = ''
+    for fruits_choosen in ingredient_list:
+      ingredients_string += fruits_choosen +' '
+      st.subheader(fruits_choosen +'Nutrition information')
+      smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+      sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
   #st.write(sf_df)
 except Exception as e:
   st.write('error is : ', {e})
