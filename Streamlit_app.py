@@ -52,7 +52,7 @@ try:
   st.text(smoothiefroot_response.text)
   sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=true)
 except Exception as e:
-  st.write('error is {e]')
+  st.write('error is : {e}')
     
   #st.write(ingredient_list)
   #st.text(ingredient_list)
