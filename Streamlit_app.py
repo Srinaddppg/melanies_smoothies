@@ -40,7 +40,7 @@ if ingredient_list:
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_on_order)
                     values ('""" + ingredients_string + "" "', '""" + name_on_order + "" "')"""
 
-    st.write(ingredient_list)
+    #st.write(ingredient_list)
     
     time_to_insert = st.button('Submit Order')
     
@@ -59,7 +59,7 @@ try:
       search_on=pd_df.loc[pd_df['FRUIT_NAME'] == fruits_choosen, 'SEARCH_ON'].iloc[0]
       st.write('The search value for ', fruits_choosen,' is ', search_on, '.')
       st.subheader(fruits_choosen +' Nutrition information')
-      smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + {search_on})
+      smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + {search_on}::string)
       sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
   #st.write(sf_df)
 except Exception as e:
