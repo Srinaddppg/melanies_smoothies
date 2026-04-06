@@ -52,7 +52,7 @@ try:
     for fruits_choosen in ingredient_list:
       ingredients_string += fruits_choosen +' '
       st.subheader(fruits_choosen +'Nutrition information')
-      smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+      smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + fruits_choosen)
       sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
   #st.write(sf_df)
 except Exception as e:
