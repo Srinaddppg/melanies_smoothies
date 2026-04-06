@@ -45,8 +45,13 @@ if ingredient_list:
         session.sql(my_insert_stmt).collect()
         st.success('Your Smoothie is ordered!', icon="✅")
 import requests  
-smoothiefroot_response = requests.get("[https://my.smoothiefroot.com/api/fruit/watermelon](https://my.smoothiefroot.com/api/fruit/watermelon)")  
-st.text(smoothiefroot_response)
+#smoothiefroot_response = requests.get("[https://my.smoothiefroot.com/api/fruit/watermelon](https://my.smoothiefroot.com/api/fruit/watermelon)")  
+try:
+  smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+  st.text(smoothiefroot_response.status_code)
+  st.text(smoothiefroot_response.text)
+except Exception as e:
+  st.write('error is {e]')
     
   #st.write(ingredient_list)
   #st.text(ingredient_list)
